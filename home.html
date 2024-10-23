@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ballbox | home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins",sans-serif;
+      color: orange;
+    }
+    body{
+      overflow:hidden;
+      background-image:url('https://user-images.githubusercontent.com/39765499/56616390-34effc00-6615-11e9-84a2-bcde4ecaaadd.gif');
+    }
+    .username{
+      padding: 10px;
+      border: none;
+      outline:none;
+      border-bottom: 2px solid #fff;
+      margin: 50px;
+      background: transparent ;
+      text-align: center;
+      background-size:cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height:100%;
+      image-rendering: auto;
+    }
+    .play{
+      display: flex;
+      flex-direction: column ;
+      justify-content: center;
+      align-items:center;
+    }
+    .play h1{
+      padding:50px;
+      text-align:center;
+    }
+    .choose-text{
+      text-align:center;
+    }
+    .play-now{
+      display: flex ;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background:green;
+      border: 2px lime solid;
+      outline:none;
+      border-radius: 5%;
+      color:white;
+      text-align:center;
+      margin: 30px auto;
+    }
+    .color{
+      display:flex;
+      justify-content: center;
+      margin:0 auto;
+      padding:20px;
+      background-color:darkgrey;
+      color:orange;
+      border: none ;
+      outline: none ;
+      border-radius:5%;
+    }
+    #i1{
+      background-color:black;
+    }
+    #i2{
+      background-color:red;
+    }
+    #i3{
+      background-color:blue;
+    }
+    #i4{
+      background-color:green;
+    }
+    #i5{
+      background-color: orange;
+    }
+    #i6{
+      background-color:cyan;
+    }
+    #i7{
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="play">
+    <h1>Welcome to BallBox breakout</h1>
+    <form>
+      <input type="text" placeholder="Enter your username 🎮🎮🎮" class="username">
+              <p class="choose-text">Choose a color for paddle</p>
+      <select class="color">
+        <option class="pick">Black</option>
+        <option id="i2">Red</option>
+        <option id="i3">Blue</option>
+        <option id="i4">Green</option>
+        <option id="i5">Orange</option>
+        <option id="i6">Cyan</option>
+        <option id="i7">Yellow</option>
+      </select>
+      <button class="play-now">Play</button>
+    </form>
+  </div>
+  <script type="module">
+    const button = document.querySelector('.play-now');
+    const username = document.querySelector('.username');
+    const color = document.querySelector('.color');
+
+  // Import the functions you need from the SDKs you need
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, collection, getDocs, addDoc ,onSnapshot,query,where} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3YvZVubkRDvNcb6Hc3nxOBfhsCWjZh40",
+    authDomain: "breakout-2fb35.firebaseapp.com",
+    projectId: "breakout-2fb35",
+    storageBucket: "breakout-2fb35.appspot.com",
+    messagingSenderId: "349383454205",
+    appId: "1:349383454205:web:d0c157b46012fa737afd94"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore();
+  const colref = collection(db,'playerinfo');
+  function test(){
+    console.log('check');
+  }
+  console.log(button);
+  button.addEventListener('click',test);
+  
+</script>
+</body>
+
+</html>
